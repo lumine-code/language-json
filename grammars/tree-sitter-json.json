@@ -1,7 +1,7 @@
 {
   "name": "JSON",
   "scopeName": "source.json",
-  "type": "modern-tree-sitter",
+  "type": "tree-sitter",
   "parser": "tree-sitter-json",
   "injectionRegex": "^(json|JSON)$",
   "treeSitter": {

@@ -1,7 +1,7 @@
 {
   "name": "JSONC",
   "scopeName": "source.json.jsonc",
-  "type": "modern-tree-sitter",
+  "type": "tree-sitter",
   "parser": "tree-sitter-json",
   "injectionRegex": "^(jsonc|JSONC)$",
   "treeSitter": {
