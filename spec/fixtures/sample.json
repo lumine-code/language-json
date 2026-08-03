@@ -1,0 +1,22 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "private": true,
+  "retries": 3,
+  "ratio": 1.5,
+  "exponent": 6.02e23,
+  "negative": -40,
+  "missing": null,
+  "escaped": "a \"quoted\" word, a tab\there, and a é",
+  "keywords": ["json", "sample", "fixture"],
+  "engines": {
+    "node": ">=24",
+    "atom": "*"
+  },
+  "matrix": [
+    [1, 2],
+    [3, 4]
+  ],
+  "empty": {},
+  "nothing": []
+}

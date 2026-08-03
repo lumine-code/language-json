@@ -1,0 +1,12 @@
+{
+  // JSON with comments: both comment forms, which plain JSON has no room for.
+  "name": "sample",
+
+  /* Both comment forms are part of the dialect, not an extension the
+     editor tolerates. */
+  "retries": 3,
+  "keywords": ["jsonc", "sample"],
+  "engines": {
+    "node": ">=24"
+  }
+}
