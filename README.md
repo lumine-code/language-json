@@ -9,6 +9,10 @@ JSON language support.
 - **Comment tolerance**: comments are allowed in JSON files by default and can be disabled in settings.
 - **Code folding**: collapse objects and arrays.
 
+## Installation
+
+To install `language-json` search for _language-json_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-json`.
+
 ## Services
 
 - **hyperlink.injection** (`^1.0.0`): consumed to highlight URLs inside strings as clickable links.
