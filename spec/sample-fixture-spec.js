@@ -7,12 +7,12 @@ const path = require("path");
 
 describe("JSON sample fixtures", () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage("language-json");
-    atom.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-json");
+    lumine.config.set("language.useTreeSitterParsers", true);
   });
 
   it("parses sample.json without error", async () => {
-    const editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.json"));
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.json"));
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
@@ -21,7 +21,7 @@ describe("JSON sample fixtures", () => {
   });
 
   it("parses sample.jsonc without error", async () => {
-    const editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.jsonc"));
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.jsonc"));
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 

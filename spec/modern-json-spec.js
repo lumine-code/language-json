@@ -1,20 +1,20 @@
 describe("modern JSON grammars", () => {
   beforeEach(async () => {
-    atom.config.set("language.useTreeSitterParsers", true);
-    await atom.packages.activatePackage("language-json");
+    lumine.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-json");
   });
 
   it("names the commented JSON grammar JSONC", () => {
-    const grammar = atom.grammars.grammarForScopeName("source.json.jsonc");
+    const grammar = lumine.grammars.grammarForScopeName("source.json.jsonc");
 
     expect(grammar).toBeDefined();
     expect(grammar.name).toBe("JSONC");
   });
 
   it("highlights trailing commas as valid punctuation in JSONC", async () => {
-    const editor = await atom.workspace.open("test.jsonc");
+    const editor = await lumine.workspace.open("test.jsonc");
     editor.setText('{"value": 1,}\n[1,]');
-    editor.setGrammar(atom.grammars.grammarForScopeName("source.json.jsonc"));
+    editor.setGrammar(lumine.grammars.grammarForScopeName("source.json.jsonc"));
     await editor.getBuffer().languageMode.ready;
 
     const objectCommaScopes = editor.scopeDescriptorForBufferPosition([0, 11]).getScopesArray();
@@ -27,9 +27,9 @@ describe("modern JSON grammars", () => {
   });
 
   it("continues to mark trailing commas as invalid in strict JSON", async () => {
-    const editor = await atom.workspace.open("test.json");
+    const editor = await lumine.workspace.open("test.json");
     editor.setText('{"value": 1,}');
-    editor.setGrammar(atom.grammars.grammarForScopeName("source.json"));
+    editor.setGrammar(lumine.grammars.grammarForScopeName("source.json"));
     await editor.getBuffer().languageMode.ready;
 
     const commaScopes = editor.scopeDescriptorForBufferPosition([0, 11]).getScopesArray();

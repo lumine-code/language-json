@@ -2,11 +2,11 @@ describe("JSON grammar", () => {
   let grammar = null;
 
   beforeEach(() => {
-    atom.config.set("language.useTreeSitterParsers", false);
+    lumine.config.set("language.useTreeSitterParsers", false);
 
-    waitsForPromise(() => atom.packages.activatePackage("language-json"));
+    waitsForPromise(() => lumine.packages.activatePackage("language-json"));
 
-    runs(() => (grammar = atom.grammars.grammarForScopeName("source.json")));
+    runs(() => (grammar = lumine.grammars.grammarForScopeName("source.json")));
   });
 
   it("parses the grammar", () => {
