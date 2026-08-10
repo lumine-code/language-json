@@ -1,12 +1,12 @@
 describe("JSON grammar", () => {
   let grammar = null;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     lumine.config.set("language.useTreeSitterParsers", false);
 
-    waitsForPromise(() => lumine.packages.activatePackage("language-json"));
+    await lumine.packages.activatePackage("language-json");
 
-    runs(() => (grammar = lumine.grammars.grammarForScopeName("source.json")));
+    grammar = lumine.grammars.grammarForScopeName("source.json");
   });
 
   it("parses the grammar", () => {
