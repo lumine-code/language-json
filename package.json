@@ -28,6 +28,7 @@
     "allowCommentsInJsonFiles": {
       "title": "Allow Comments in .json files",
       "description": "When checked, will allow comments in `.json` files even though they’re not valid according to the official JSON specification. When unchecked, comments in `.json` files will be marked as invalid, and only files with the `.jsonc` extension will mark comments as valid and allowed. (It’s recommended to reload your window or restart Lumine after changing this setting.)",
+      "scopeResolution": "grammar",
       "type": "boolean",
       "default": true
     }
