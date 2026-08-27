@@ -1,6 +1,6 @@
 {
   ".source.json": {
-    "language": {
+    "editor": {
       "commentStart": "// ",
       "commentDelimiters": {
         "block": ["/*", "*/"],

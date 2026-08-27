@@ -1,6 +1,6 @@
 describe("modern JSON grammars", () => {
   beforeEach(async () => {
-    lumine.config.set("language.useTreeSitterParsers", true);
+    lumine.config.set("editor.useTreeSitterParsers", true);
     await lumine.packages.activatePackage("language-json");
   });
 

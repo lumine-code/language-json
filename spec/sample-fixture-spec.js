@@ -8,7 +8,7 @@ const path = require("path");
 describe("JSON sample fixtures", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-json");
-    lumine.config.set("language.useTreeSitterParsers", true);
+    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   it("parses sample.json without error", async () => {
