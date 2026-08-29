@@ -34,14 +34,8 @@
 "[" @punctuation.definition.array.begin.bracket.square.json
 "]" @punctuation.definition.array.end.bracket.square.json
 
-(object
-  "," @punctuation.separator.object.comma.json
-  (#set! capture.final true))
-
-(array
-  "," @punctuation.separator.array.comma.json
-  (#set! capture.final true))
-
+; Keep this capture rooted on the comma token. A pattern rooted on an object or
+; array scans every sibling in a large top-level container for each viewport query.
 "," @punctuation.separator.comma.json
 ":" @punctuation.separator.key-value.colon.json
 
