@@ -16,6 +16,7 @@
     "geojson",
     "ipynb",
     "jsonld",
+    "json5",
     "tree-sitter"
   ],
   "engines": {

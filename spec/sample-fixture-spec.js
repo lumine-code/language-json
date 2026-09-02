@@ -8,7 +8,6 @@ const path = require("path");
 describe("JSON sample fixtures", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-json");
-    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   it("parses sample.json without error", async () => {
@@ -27,5 +26,17 @@ describe("JSON sample fixtures", () => {
 
     expect(editor.getGrammar().scopeName).toBe("source.json.jsonc");
     expect(languageMode.tree.rootNode.hasError).toBe(false);
+  });
+
+  it("parses sample.json5 without error", async () => {
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.json5"));
+    const languageMode = editor.getBuffer().getLanguageMode();
+    await languageMode.ready;
+
+    expect(editor.getGrammar().scopeName).toBe("source.json5");
+    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect(editor.scopeDescriptorForBufferPosition([2, 2]).getScopesArray()).toContain(
+      "constant.other.key.json5",
+    );
   });
 });

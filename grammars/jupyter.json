@@ -1,0 +1,20 @@
+{
+  "name": "Jupyter Notebook",
+  "scopeName": "source.jupyter",
+  "type": "tree-sitter",
+  "parser": "tree-sitter-json",
+  "treeSitter": {
+    "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "grammar": "json.wasm",
+    "highlightsQuery": [
+      "json-no-comments-highlights.scm",
+      "json-highlights.scm",
+      "json-no-trailing-commas-highlights.scm"
+    ],
+    "indentsQuery": "json-indents.scm",
+    "foldsQuery": "json-folds.scm",
+    "tagsQuery": "json-tags.scm"
+  },
+  "fileTypes": ["ipynb"]
+}

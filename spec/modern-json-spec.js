@@ -1,6 +1,5 @@
 describe("modern JSON grammars", () => {
   beforeEach(async () => {
-    lumine.config.set("editor.useTreeSitterParsers", true);
     await lumine.packages.activatePackage("language-json");
   });
 
@@ -9,6 +8,21 @@ describe("modern JSON grammars", () => {
 
     expect(grammar).toBeDefined();
     expect(grammar.name).toBe("JSONC");
+  });
+
+  it("owns Jupyter notebooks with a root-only Tree-sitter descriptor", async () => {
+    const grammar = lumine.grammars.selectGrammar("analysis.ipynb", "");
+    expect(grammar.name).toBe("Jupyter Notebook");
+    expect(grammar.scopeName).toBe("source.jupyter");
+    expect(grammar.constructor.name).toBe("TreeSitterGrammar");
+    const descriptor = require("../grammars/jupyter.json");
+    expect(Object.hasOwn(descriptor, "injectionRegex")).toBe(false);
+    expect(Object.hasOwn(descriptor, "injectionNames")).toBe(false);
+
+    const editor = await lumine.workspace.open("analysis.ipynb");
+    editor.setText('{"cells": []}');
+    await editor.getBuffer().getLanguageMode().ready;
+    expect(editor.getBuffer().getLanguageMode().tree.rootNode.hasError).toBe(false);
   });
 
   it("uses the generic separator scope for object and array commas", async () => {

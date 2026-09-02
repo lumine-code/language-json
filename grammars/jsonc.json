@@ -3,15 +3,15 @@
   "scopeName": "source.json.jsonc",
   "type": "tree-sitter",
   "parser": "tree-sitter-json",
-  "injectionRegex": "^(jsonc|JSONC)$",
+  "injectionNames": ["jsonc"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
     "wasmBuildTool": "tree-sitter-cli#v0.26.13",
-    "grammar": "tree-sitter/tree-sitter-json.wasm",
-    "highlightsQuery": "tree-sitter/queries/highlights.scm",
-    "indentsQuery": "tree-sitter/queries/indents.scm",
-    "foldsQuery": "tree-sitter/queries/folds.scm",
-    "tagsQuery": "tree-sitter/queries/tags.scm"
+    "grammar": "json.wasm",
+    "highlightsQuery": "json-highlights.scm",
+    "indentsQuery": "json-indents.scm",
+    "foldsQuery": "json-folds.scm",
+    "tagsQuery": "json-tags.scm"
   },
   // There are other flavors of JSON that support comments, but most of those have
   // other language features that `tree-sitter-json` doesn't support and will need

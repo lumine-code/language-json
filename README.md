@@ -4,8 +4,8 @@ JSON language support.
 
 ## Features
 
-- **Grammars**: provides Tree-sitter grammars built from [tree-sitter-json](https://github.com/tree-sitter/tree-sitter-json) and TextMate grammars derived from [atom/language-json](https://github.com/atom/language-json).
-- **Syntax highlighting**: full grammar coverage for JSON and JSONC files.
+- **Grammars**: provides Tree-sitter grammars built from [tree-sitter-json](https://github.com/tree-sitter/tree-sitter-json) and [tree-sitter-json5](https://github.com/Joakker/tree-sitter-json5).
+- **Syntax highlighting**: full grammar coverage for JSON, JSONC, JSON5, and Jupyter notebook sources.
 - **Comment tolerance**: comments are allowed in JSON files by default and can be disabled in settings.
 - **Code folding**: collapse objects and arrays.
 

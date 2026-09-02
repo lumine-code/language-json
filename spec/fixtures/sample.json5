@@ -1,0 +1,5 @@
+{
+  // JSON5 permits comments, unquoted keys, and trailing commas.
+  title: 'Lumine',
+  enabled: true,
+}

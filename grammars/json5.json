@@ -1,0 +1,18 @@
+{
+  "name": "JSON5",
+  "scopeName": "source.json5",
+  "type": "tree-sitter",
+  "parser": "tree-sitter-json5",
+  "injectionNames": ["json5"],
+  "fileTypes": ["json5"],
+  "comments": {
+    "start": "// ",
+    "block": ["/*", "*/"]
+  },
+  "treeSitter": {
+    "parserSource": "github:Joakker/tree-sitter-json5#248b8564567087d7866be76569b182f6dd7e14e9",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "grammar": "json5.wasm",
+    "highlightsQuery": "json5-highlights.scm"
+  }
+}
