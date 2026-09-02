@@ -6,7 +6,7 @@
   "injectionNames": ["jsonc"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "json.wasm",
     "highlightsQuery": "json-highlights.scm",
     "indentsQuery": "json-indents.scm",

@@ -11,7 +11,7 @@
   },
   "treeSitter": {
     "parserSource": "github:Joakker/tree-sitter-json5#248b8564567087d7866be76569b182f6dd7e14e9",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "json5.wasm",
     "highlightsQuery": "json5-highlights.scm"
   }
