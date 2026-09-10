@@ -4,17 +4,18 @@
 (pair
   key: (string) @meta.structure.key.json)
 
-(string
-  "\"" @punctuation.definition.string.begin.json
-    (#is? test.first true))
+("\"" @punctuation.definition.string.begin.json
+  (#is? test.childOfType string)
+  (#is? test.first true))
 
-(string
-  "\"" @punctuation.definition.string.end.json
-    (#is? test.last true))
+("\"" @punctuation.definition.string.end.json
+  (#is? test.childOfType string)
+  (#is? test.last true))
 
 (string) @string.quoted.double.json
 
-(string (escape_sequence) @constant.character.escape.json)
+((escape_sequence) @constant.character.escape.json
+  (#is? test.childOfType string))
 
 
 ; VALUES
@@ -51,7 +52,8 @@
 
 ; Line comments. `//`
 ((comment) @comment.line.double-slash.json
-  (#match? @comment.line.double-slash.json "^\/\/"))
+  (#match? @comment.line.double-slash.json "^\/\/")
+  (#set! adjust.endBeforeFirstMatchOf "\\r?$"))
 
 ((comment) @punctuation.definition.comment.json
   (#match? @punctuation.definition.comment.json "^\/\/")

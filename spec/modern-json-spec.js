@@ -1,3 +1,9 @@
+const fs = require("fs");
+const path = require("path");
+const { Point } = require("lumine");
+
+const HIGHLIGHTS_PATH = path.join(__dirname, "..", "grammars", "json-highlights.scm");
+
 describe("modern JSON grammars", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-json");
@@ -40,6 +46,19 @@ describe("modern JSON grammars", () => {
     expect(arrayCommaScopes).not.toContain("punctuation.separator.array.comma.json");
   });
 
+  it("distinguishes both delimiters of an empty string", async () => {
+    const editor = await lumine.workspace.open("empty-string.json");
+    editor.setText('""');
+    await editor.getBuffer().languageMode.ready;
+
+    const opening = editor.scopeDescriptorForBufferPosition([0, 0]).getScopesArray();
+    const closing = editor.scopeDescriptorForBufferPosition([0, 1]).getScopesArray();
+    expect(opening).toContain("punctuation.definition.string.begin.json");
+    expect(opening).not.toContain("punctuation.definition.string.end.json");
+    expect(closing).toContain("punctuation.definition.string.end.json");
+    expect(closing).not.toContain("punctuation.definition.string.begin.json");
+  });
+
   it("highlights trailing commas as valid punctuation in JSONC", async () => {
     const editor = await lumine.workspace.open("test.jsonc");
     editor.setText('{"value": 1,}\n[1,]');
@@ -63,5 +82,38 @@ describe("modern JSON grammars", () => {
 
     const commaScopes = editor.scopeDescriptorForBufferPosition([0, 11]).getScopesArray();
     expect(commaScopes).toContain("invalid.illegal.comma.json");
+  });
+
+  it("keeps escapes local within a long soft-wrapped string", async () => {
+    const querySource = fs.readFileSync(HIGHLIGHTS_PATH, "utf8");
+    expect(querySource).not.toMatch(/\(string\s+\(escape_sequence\)/);
+    expect(querySource).toContain("(#is? test.childOfType string)");
+
+    const editor = await lumine.workspace.open("long-string.json");
+    const escapeCount = 20000;
+    const text = `"${"\\n".repeat(escapeCount)}"`;
+    editor.setText(text);
+    const languageMode = editor.getBuffer().languageMode;
+    await languageMode.ready;
+    expect(languageMode.tree.rootNode.hasError).toBe(false);
+
+    const startColumn = 1 + escapeCount;
+    expect(editor.scopeDescriptorForBufferPosition([0, startColumn]).getScopesArray()).toContain(
+      "constant.character.escape.json",
+    );
+    const layer = languageMode.rootLanguageLayer;
+    const captures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+      startPosition: new Point(0, startColumn),
+      endPosition: new Point(0, startColumn + 12),
+    });
+    const escapes = captures.filter(({ name }) => name === "constant.character.escape.json");
+    expect(escapes.length).toBe(6);
+    expect(
+      escapes.every(
+        ({ node }) =>
+          node.startPosition.column >= startColumn && node.startPosition.column < startColumn + 12,
+      ),
+    ).toBe(true);
+    editor.destroy();
   });
 });

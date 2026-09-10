@@ -10,5 +10,6 @@
   (#is-not? test.config "language-json.allowCommentsInJsonFiles")
   ; Ensure this doesn't match empty or missing nodes.
   (#match? @invalid.illegal.comment.json ".")
+  (#set! adjust.endBeforeFirstMatchOf "\\r?$")
   (#set! capture.final)
 )
