@@ -3,7 +3,7 @@
   "scopeName": "source.json",
   "type": "tree-sitter",
   "parser": "tree-sitter-json",
-  "injectionNames": ["json"],
+  "injectionNames": ["json", "geojson", "jsonl", "sarif", "topojson"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
