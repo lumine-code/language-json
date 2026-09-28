@@ -28,7 +28,7 @@ describe("modern JSON grammars", () => {
     const editor = await lumine.workspace.open("analysis.ipynb");
     editor.setText('{"cells": []}');
     await editor.getBuffer().getLanguageMode().ready;
-    expect(editor.getBuffer().getLanguageMode().tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
   });
 
   it("uses the generic separator scope for object and array commas", async () => {
@@ -95,17 +95,17 @@ describe("modern JSON grammars", () => {
     editor.setText(text);
     const languageMode = editor.getBuffer().languageMode;
     await languageMode.ready;
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
 
     const startColumn = 1 + escapeCount;
     expect(editor.scopeDescriptorForBufferPosition([0, startColumn]).getScopesArray()).toContain(
       "constant.character.escape.json",
     );
-    const layer = languageMode.rootLanguageLayer;
-    const captures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
       startPosition: new Point(0, startColumn),
       endPosition: new Point(0, startColumn + 12),
     });
+    const captures = groups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
     const escapes = captures.filter(({ name }) => name === "constant.character.escape.json");
     expect(escapes.length).toBe(6);
     expect(
