@@ -8,6 +8,7 @@
     "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "json.wasm",
+    "injectionsQuery": "json-injections.scm",
     "highlightsQuery": [
       "json-no-comments-highlights.scm",
       "json-highlights.scm",

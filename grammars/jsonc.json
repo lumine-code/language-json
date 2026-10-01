@@ -9,6 +9,7 @@
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "json.wasm",
     "highlightsQuery": "json-highlights.scm",
+    "injectionsQuery": "jsonc-injections.scm",
     "indentsQuery": "json-indents.scm",
     "foldsQuery": "json-folds.scm",
     "tagsQuery": "json-tags.scm"

@@ -16,7 +16,7 @@ describe("JSON sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("source.json");
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.languageMode.tree.rootNode.hasError).toBe(false);
   });
 
   it("parses sample.jsonc without error", async () => {
@@ -25,7 +25,7 @@ describe("JSON sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("source.json.jsonc");
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.languageMode.tree.rootNode.hasError).toBe(false);
   });
 
   it("parses sample.json5 without error", async () => {
@@ -34,7 +34,7 @@ describe("JSON sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("source.json5");
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.languageMode.tree.rootNode.hasError).toBe(false);
     expect(editor.scopeDescriptorForBufferPosition([2, 2]).getScopesArray()).toContain(
       "constant.other.key.json5",
     );

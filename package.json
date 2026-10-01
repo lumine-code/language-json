@@ -2,10 +2,8 @@
   "name": "language-json",
   "author": "lumine-code",
   "version": "1.0.0",
-  "main": "lib/main",
   "files": [
     "grammars",
-    "lib",
     "settings",
     "spec"
   ],
@@ -32,18 +30,6 @@
       "scopeResolution": "grammar",
       "type": "boolean",
       "default": true
-    }
-  },
-  "consumedServices": {
-    "hyperlink.injection": {
-      "versions": {
-        "^1.0.0": "consumeHyperlinkInjection"
-      }
-    },
-    "todo.injection": {
-      "versions": {
-        "^1.0.0": "consumeTodoInjection"
-      }
     }
   },
   "bugs": {
