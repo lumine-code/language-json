@@ -1,0 +1,88 @@
+{
+  "source.json5": {
+    "text": "{ unquoted: 1, \"quoted\": {nested: 2}, array: [{hidden: 3}] }",
+    "symbols": [
+      {
+        "name": "unquoted",
+        "tag": "property"
+      },
+      {
+        "name": "quoted",
+        "tag": "property"
+      },
+      {
+        "name": "quoted.nested",
+        "tag": "property"
+      },
+      {
+        "name": "array",
+        "tag": "property"
+      }
+    ],
+    "absent": ["hidden"],
+    "only": true
+  },
+  "source.json": {
+    "text": "{\"name\": \"demo\", \"server\": {\"port\": 8080}, \"items\": [{\"hidden\": 1}]}",
+    "symbols": [
+      {
+        "name": "name",
+        "tag": "property"
+      },
+      {
+        "name": "server",
+        "tag": "property"
+      },
+      {
+        "name": "server.port",
+        "tag": "property"
+      },
+      {
+        "name": "items",
+        "tag": "property"
+      }
+    ],
+    "absent": ["hidden"],
+    "only": true
+  },
+  "source.json.jsonc": {
+    "text": "{\n// settings\n\"enabled\": true, \"server\": {\"port\": 8080}\n}",
+    "symbols": [
+      {
+        "name": "enabled",
+        "tag": "property"
+      },
+      {
+        "name": "server",
+        "tag": "property"
+      },
+      {
+        "name": "server.port",
+        "tag": "property"
+      }
+    ],
+    "only": true
+  },
+  "source.jupyter": {
+    "text": "{\"cells\": [], \"metadata\": {\"language\": \"python\"}, \"nbformat\": 4}",
+    "symbols": [
+      {
+        "name": "cells",
+        "tag": "property"
+      },
+      {
+        "name": "metadata",
+        "tag": "property"
+      },
+      {
+        "name": "metadata.language",
+        "tag": "property"
+      },
+      {
+        "name": "nbformat",
+        "tag": "property"
+      }
+    ],
+    "only": true
+  }
+}
