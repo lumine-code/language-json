@@ -4,7 +4,7 @@
   "type": "tree-sitter",
   "parser": "tree-sitter-json",
   "treeSitter": {
-    "parserSource": "github:tree-sitter/tree-sitter-json#v0.24.8",
+    "parserSource": "github:tree-sitter/tree-sitter-json#254c42a6476413b776221e03982ac8ae159eeb72",
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "json.wasm",
     "injectionsQuery": "jupyter-injections.scm",
