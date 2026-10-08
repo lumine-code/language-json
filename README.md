@@ -2,6 +2,8 @@
 
 JSON language support.
 
+Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/language-json`).
+
 ## Features
 
 - **Grammars**: provides Tree-sitter grammars built from [tree-sitter-json](https://github.com/tree-sitter/tree-sitter-json) and [tree-sitter-json5](https://github.com/Joakker/tree-sitter-json5).
