@@ -15,6 +15,7 @@
     "ipynb",
     "jsonld",
     "json5",
+    "grv",
     "tree-sitter"
   ],
   "engines": {
