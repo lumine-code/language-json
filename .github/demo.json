@@ -1,0 +1,16 @@
+{
+  "title": "language-json",
+  "description": "JSON syntax highlighting in the editor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "a80e84d1ecf6a7c4b2231a2611356fd716808d05",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "JSON syntax highlighting at the default editor font size.",
+      "width": 1100,
+      "height": 604
+    }
+  ]
+}

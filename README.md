@@ -11,6 +11,8 @@ Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/l
 - **Comment tolerance**: comments are allowed in JSON files by default and can be disabled in settings.
 - **Code folding**: collapse objects and arrays.
 
+![JSON syntax highlighting at the default editor font size.](.github/demo.png)
+
 ## Installation
 
 To install `language-json` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-json`.
