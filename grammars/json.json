@@ -6,7 +6,7 @@
   "injectionNames": ["json", "geojson", "jsonl", "sarif", "topojson"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-json#254c42a6476413b776221e03982ac8ae159eeb72",
-    "wasmBuildTool": "tree-sitter-cli#v0.27.0",
+    "wasmBuildTool": "tree-sitter-cli#v0.27.1",
     "grammar": "json.wasm",
     "injectionsQuery": "json-injections.scm",
     "highlightsQuery": [
