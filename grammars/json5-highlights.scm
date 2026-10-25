@@ -4,6 +4,7 @@
 (null) @constant.language.null.json5
 [(true) (false)] @constant.language.boolean.json5
 ((comment) @comment.line.double-slash.json5
+  (#match? @comment.line.double-slash.json5 "^//")
   (#set! adjust.endBeforeFirstMatchOf "\\r?$"))
 
 ((comment) @comment.block.json5
