@@ -13,12 +13,24 @@
     }
   },
   ".source.jupyter": {
+    "editor": {
+      "commentStart": "",
+      "commentEnd": "",
+      "commentDelimiters": {}
+    },
     "bracket-matcher": {
       "autocompleteCharacters": ["[]", "{}", "\"\""],
       "pairsWithExtraNewline": ["[]", "{}"]
     }
   },
   ".source.json5": {
+    "editor": {
+      "commentStart": "// ",
+      "commentDelimiters": {
+        "line": "//",
+        "block": ["/*", "*/"]
+      }
+    },
     "bracket-matcher": {
       "autocompleteCharacters": ["[]", "{}", "\"\"", "''"],
       "pairsWithExtraNewline": ["[]", "{}"]

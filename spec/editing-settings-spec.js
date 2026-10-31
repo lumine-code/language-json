@@ -61,6 +61,31 @@ describe("json editing settings", () => {
     }
   });
 
+  it("keeps raw notebook JSON comment-free with generic source settings active", async () => {
+    await lumine.packages.activatePackage("language-source");
+    editor.setGrammar(lumine.grammars.grammarForScopeName("source.jupyter"));
+    const source = '{"cells": [], "metadata": {}}';
+    await setText(source);
+    const delimiters = await editor.getCommentDelimitersForBufferPosition([0, 0]);
+    expect(delimiters).toBeNull();
+    await editor.toggleLineCommentsForBufferRows(0, 0);
+    expect(editor.getText()).toBe(source);
+  });
+
+  it("owns JSON5 line and block metadata with generic source settings active", async () => {
+    await lumine.packages.activatePackage("language-source");
+    editor.setGrammar(lumine.grammars.grammarForScopeName("source.json5"));
+    await setText("{value: 1}");
+    expect(await editor.getCommentDelimitersForBufferPosition([0, 0])).toEqual({
+      line: "//",
+      block: ["/*", "*/"],
+    });
+    await editor.toggleLineCommentsForBufferRows(0, 0);
+    expect(editor.getText()).toBe("// {value: 1}");
+    await editor.toggleLineCommentsForBufferRows(0, 0);
+    expect(editor.getText()).toBe("{value: 1}");
+  });
+
   it("keeps explicit user pair overrides authoritative", async () => {
     await lumine.packages.activatePackage("bracket-matcher");
     lumine.config.set("bracket-matcher.autocompleteCharacters", ["''"], {

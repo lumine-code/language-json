@@ -53,6 +53,7 @@
   },
   "specPackages": [
     "symbol-tree-sitter",
-    "bracket-matcher"
+    "bracket-matcher",
+    "language-source"
   ]
 }
