@@ -6,6 +6,22 @@
         "block": ["/*", "*/"],
         "line": "//"
       }
+    },
+    "bracket-matcher": {
+      "autocompleteCharacters": ["[]", "{}", "\"\""],
+      "pairsWithExtraNewline": ["[]", "{}"]
+    }
+  },
+  ".source.jupyter": {
+    "bracket-matcher": {
+      "autocompleteCharacters": ["[]", "{}", "\"\""],
+      "pairsWithExtraNewline": ["[]", "{}"]
+    }
+  },
+  ".source.json5": {
+    "bracket-matcher": {
+      "autocompleteCharacters": ["[]", "{}", "\"\"", "''"],
+      "pairsWithExtraNewline": ["[]", "{}"]
     }
   }
 }
