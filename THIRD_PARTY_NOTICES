@@ -69,6 +69,9 @@ suitability for any purpose.
 Source: https://github.com/tree-sitter/tree-sitter-json
 Revision: 254c42a6476413b776221e03982ac8ae159eeb72
 
+Parser source: github:tree-sitter/tree-sitter-json#254c42a6476413b776221e03982ac8ae159eeb72
+Resolved commit: 254c42a6476413b776221e03982ac8ae159eeb72
+
 Original file: LICENSE
 
 The MIT License (MIT)
@@ -97,6 +100,9 @@ SOFTWARE.
 ----- BEGIN THIRD-PARTY LICENSE: parser:Joakker_tree-sitter-json5 -----
 Source: https://github.com/Joakker/tree-sitter-json5
 Revision: 248b8564567087d7866be76569b182f6dd7e14e9
+
+Parser source: github:Joakker/tree-sitter-json5#248b8564567087d7866be76569b182f6dd7e14e9
+Resolved commit: 248b8564567087d7866be76569b182f6dd7e14e9
 
 Original file: LICENSE
 
